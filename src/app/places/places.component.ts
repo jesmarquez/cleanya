@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild, ElementRef} from "@angular/core";
 import { DataService } from "../data.service";
 
 @Component({
@@ -11,6 +11,10 @@ export class PlacesComponent {
 
   mode: string = 'show';
   places: {name:string, status: string, code:string }[] = [];
+
+  @ViewChild('placeNameSearchInput')
+  placeNameSearchInputRef!: ElementRef;
+
   
   constructor( private dataService: DataService ) {
     
@@ -18,9 +22,8 @@ export class PlacesComponent {
 
   ngOnInit() {
     this.places = this.dataService.places;
-    
-
   }
+
   onClickPlace(event: any ) {
     console.log(event);
     console.log(event.target.getAttribute('data-code'));
@@ -29,5 +32,12 @@ export class PlacesComponent {
   onClickAddPlace() {
     console.log('add place');
 
+  }
+
+  onSearch() {
+    const placeName = this.placeNameSearchInputRef.nativeElement.value;
+
+
+    console.log('search:' + placeName);
   }
 }
