@@ -1,0 +1,45 @@
+<div class="row p-3">
+  <div class="col">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Place's name" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+    </div>
+  </div>
+</div>
+<form action="">
+  <div class="row p-3">
+    <div class="col">
+      <div class="col">
+        <input class="form-control form-control-lg" type="text" placeholder="Enter a place" aria-label=".form-control-lg example">
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="row p-3">
+    <div class="col">
+      <button
+      class="btn btn-secondary float-end mr-1">Cancel</button>
+      
+      <button type="submit"
+        class="btn btn-primary float-end mr-1"
+
+        (click) = "onClickAddPlace()"
+        >Add</button>
+    </div>
+  </div>
+</form>
+
+
+<div class="row p-5">
+  <div class="col">
+<ul class="list-group list-group-flush">
+    <li 
+      *ngFor="let place of places; index as i"
+      class="list-group-item"
+      (click) = "onClickPlace($event)"
+      [attr.data-code] = "place.code"
+    >{{ place.name }}</li>
+  </ul>
+  </div>
+  </div>
