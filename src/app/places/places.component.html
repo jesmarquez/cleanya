@@ -1,5 +1,5 @@
 <div class="row p-3" *ngIf="mode === 'show'">
-  <div class="col">
+  <div class="col-10">
     <div class="input-group">
       <input 
         type="text" 
@@ -15,37 +15,39 @@
         (click) = "onSearch()">Search</button>
     </div>
   </div>
+  <div class="col-2">
+    <button 
+      type="button" 
+      class="btn btn-outline-secondary"
+      (click)="onClickAddPlace()">Add</button>
+  </div>
 </div>
 <div class="row p-3" *ngIf="mode === 'edit'">
-  <form action="">
-    <div class="col">
-      <div class="mb-3">
-        <input class="form-control form-control-lg" type="text" placeholder="Enter a place" aria-label=".form-control-lg example">
-      </div>
-      <div class="mb-3">
-        <button
-          class="btn btn-secondary float-end mr-1">Cancel</button>
-        
-        <button type="submit"
-          class="btn btn-primary float-end mr-1"
-          (click) = "onClickAddPlace()"
-          >Add</button>        
-      </div>
+  <app-new-place
+    (placeSubmitted)="onPlaceSubmitted($event)">
 
-    </div>
-  </form>
+  </app-new-place>
 </div>
 
 
 <div class="row p-5">
-  <div class="col">
-    <ul class="list-group list-group-flush">
+
+    <!-- <ul class="list-group list-group-flush">
       <li 
         *ngFor="let place of places; index as i"
         class="list-group-item"
         (click) = "onClickPlace($event)"
         [attr.data-code] = "place.code"
       >{{ place.name }}</li>
-    </ul>
-  </div>
+    </ul> -->
+
+    <div 
+      class="card m-3" style="width: 18rem;"
+      *ngFor="let place of places; index as i">
+      <div class="card-body">
+        <h5 class="card-title">{{ place.name }}</h5>
+        <p class="card-text">{{ place.code }}</p>
+        <a href="#" class="btn btn-primary">Show</a>
+      </div>
+    </div>
 </div>

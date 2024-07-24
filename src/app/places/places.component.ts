@@ -14,8 +14,7 @@ export class PlacesComponent {
 
   @ViewChild('placeNameSearchInput')
   placeNameSearchInputRef!: ElementRef;
-
-  
+ 
   constructor( private dataService: DataService ) {
     
   }
@@ -31,6 +30,7 @@ export class PlacesComponent {
 
   onClickAddPlace() {
     console.log('add place');
+    this.mode = "edit";
 
   }
 
@@ -40,4 +40,11 @@ export class PlacesComponent {
 
     console.log('search:' + placeName);
   }
+
+  onPlaceSubmitted(submitted: any) {
+
+    console.log('place submittes' + submitted);
+
+  }
+
 }
