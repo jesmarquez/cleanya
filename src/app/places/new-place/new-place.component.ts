@@ -36,7 +36,7 @@ export class NewPlaceComponent {
     const placeLocation = this.placeLocationRef.nativeElement.value;
 
 
-    this.dataService.addPlace(placeName, placeCode, "clean");
+    this.dataService.addPlace(placeName, placeCode, placeLocation, "clean");
 
     this.placeSubmitted.emit(80);
 

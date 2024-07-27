@@ -22,12 +22,10 @@
       (click)="onClickAddPlace()">Add</button>
   </div>
 </div>
-<div class="row p-3" *ngIf="mode === 'edit'">
-  <app-new-place
-    (placeSubmitted)="onPlaceSubmitted($event)">
+<app-new-place *ngIf="mode === 'edit'"
+  (placeSubmitted)="onPlaceSubmitted($event)">
+</app-new-place>
 
-  </app-new-place>
-</div>
 
 
 <div class="row p-5">

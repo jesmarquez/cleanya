@@ -1,35 +1,43 @@
+import { Place } from "./model/place-model";
+
 export class DataService {
 
-  places = [
+  public places: Place[] =
+ [
     {
       name: "WASHROOM 1",
+      code: "UI-100",
+      location: "floor 1",
       status: "clean",
-      code: "UI-100"
     },
     {
       name: "BREAKROOM 3",
-      status: "no-clean",
-      code: "JK-654"
+      code: "JK-654",
+      location: "floor 1",
+      status: "no-clean"
     },
     {
       name: "BREAKROOM 1",
-      status: "no-clean",
-      code: "OP-008"
+      code: "OP-008",
+      location: "floor 1",
+      status: "no-clean"
     },
     {
       name: "stair 12",
-      status: "no-clean",
-      code: "MJ-OP2"
+      code: "MJ-OP2",
+      location: "floor 1",
+      status: "no-clean"
     },
     {
       name: "Door 9",
-      status: "no-clean",
-      code: "WQ-90"
+      code: "WQ-90",
+      location: "floor 1",
+      status: "no-clean"
     }
   ]
 
-  addPlace(name: string, status: string, code: string) {
-    this.places.push({ name: name, status: status, code: code});
+  addPlace(name: string, code: string, location: string, status: string) {
+    this.places.push({ name: name, code: code, location: location, status: status });
 
   }
 }
