@@ -19,6 +19,8 @@ export class NewPlaceComponent {
   placeLocationRef!: ElementRef;
 
   @Output() placeSubmitted = new EventEmitter<number>();
+  @Output() cancelSubmit= new EventEmitter<string>();
+
 
   constructor(private dataService: DataService) {
 
@@ -41,6 +43,10 @@ export class NewPlaceComponent {
     this.placeSubmitted.emit(80);
 
     console.log('submit place :' + placeName + " code:" + placeCode);
+  }
+
+  onCancelPlace() {
+    this.cancelSubmit.emit("show");
   }
 }
 
