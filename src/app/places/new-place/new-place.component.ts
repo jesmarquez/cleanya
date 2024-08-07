@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, ElementRef, Output, EventEmitter, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from '../../data.service';
     templateUrl: './new-place.component.html',
     styleUrl: './new-place.component.css'
 })
-export class NewPlaceComponent {
+export class NewPlaceComponent implements OnInit{
   places: {name: string, status: string, code: string}[] =[];
 
   @ViewChild('placeNameInput') 
@@ -43,6 +43,7 @@ export class NewPlaceComponent {
     this.placeSubmitted.emit(80);
 
     console.log('submit place :' + placeName + " code:" + placeCode);
+    console.log(this.dataService.places);
   }
 
   onCancelPlace() {

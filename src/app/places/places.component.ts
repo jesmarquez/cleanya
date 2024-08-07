@@ -1,13 +1,12 @@
-import { Component, ViewChild, ElementRef} from "@angular/core";
+import { Component, ViewChild, ElementRef, OnInit} from "@angular/core";
 import { DataService } from "../data.service";
 
 @Component({
     selector: 'app-places',
     templateUrl: './places.component.html',
-    styleUrl: './places.component.css',
-    providers: [DataService]
+    styleUrl: './places.component.css'
 })
-export class PlacesComponent {
+export class PlacesComponent implements OnInit{
 
   mode: string = 'show';
   places: {name:string, status: string, code:string }[] = [];
